@@ -48,22 +48,22 @@ rankhospital <- function(state, outcome, num = "best") {
   
   
   if(num == "best"){
-        print("best")
+       # print("best")
         rank = 1
   }else if(num == "worst"){
-      print("worst")
+      #print("worst")
       rank = num_hos
   }else if(as.numeric(num) > nrow(sub_data)){
-      print("Num > number of hospitals")
+      #print("Num > number of hospitals")
       return(NA)
   }
   else  {
-      print("Good Range")
+      #print("Good Range")
       rank = as.numeric(num)
   }
   
   num_hos = sort(as.numeric(sub_data[, valCol]))
   name_hos = subset(sub_data, as.numeric(sub_data[, valCol]) == num_hos[rank])
   
-  print(name_hos[1,2])
+  return(name_hos[1,2])
 }
